@@ -1,10 +1,10 @@
 import csv
-import os
 import calendar
+from pathlib import Path
 from datetime import datetime, date
 class RoutineTracker:
     def __init__(self):
-        self.file = "rotina.csv"
+        self.file = Path("rotina.csv")
         self.fieldnames = ['Data', 'Treino']
         self.update_csv()
  
@@ -17,8 +17,9 @@ class RoutineTracker:
                     row['Treino'] = data.get("Treino")
                 updated_rows.append(row)
         self.update_rows(updated_rows)
+
     def update_csv(self):
-        if not os.path.exists(self.file):
+        if not self.file.is_file():
             year = datetime.now().year
             month = datetime.now().month
             _, num_days = calendar.monthrange(year, month)
