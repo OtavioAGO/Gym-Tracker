@@ -2,7 +2,8 @@ import csv
 from pathlib import Path
 from workout import Workout
 
-FOLDER_PATH = Path("Treinos")
+BASE_DIR = Path(__file__).resolve().parent
+FOLDER_PATH = FOLDER_PATH = BASE_DIR / "Treinos"
 
 class WorkoutManager:
     def __init__(self):

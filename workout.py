@@ -22,5 +22,6 @@ class Workout:
         for exercise in self.exercises:
             nome = exercise.get('Exercicio')
             sets = exercise.get('Sets') or 'N/A'
-            kg = exercise.get('KG') or 'N/A'
-            print(f"{nome} - {sets} - {kg}KG")
+            peso_bruto = exercise.get('KG')
+            kg = f"{peso_bruto}KG" if peso_bruto else 'N/A'
+            print(f"{nome} - {sets} - {kg}")
